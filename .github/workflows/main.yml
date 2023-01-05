@@ -6,7 +6,7 @@ name: 🚀 Deploy website on push
 jobs:
   web-deploy:
     name: 🎉 Deploy
-    runs-on: ubuntu-latest
+    runs-on: debian-latest
     steps:
     - name: 🚚 Get latest code
       uses: actions/checkout@v2
@@ -17,3 +17,4 @@ jobs:
         server: ftp://72.105.23.254
         username: root
         password: ${{ secrets.FTP_PWD_VPS_KB }}
+        remote_dir: /var/www/
