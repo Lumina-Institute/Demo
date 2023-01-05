@@ -1,15 +1,15 @@
 on:
   push:
-    branches:
-      - main
+    branches: [main]
+    workflow_dispatch:
 name: 🚀 Deploy website on push
 jobs:
   web-deploy:
     name: 🎉 Deploy
-    runs-on: debian-latest
+    runs-on: ubuntu-latest
     steps:
-    - name: 🚚 Get latest code
-      uses: actions/checkout@v2
+    - name: Checkout repository
+      uses: actions/checkout@main
 
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.3.3
@@ -17,4 +17,5 @@ jobs:
         server: ftp://72.105.23.254
         username: root
         password: ${{ secrets.FTP_PWD_VPS_KB }}
-        remote_dir: /var/www/
+        local-dir: ./
+        server-dir: /var/www/
