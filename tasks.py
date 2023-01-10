@@ -10,7 +10,8 @@ from invoke import task, Collection
 def builds(c):
     print("Root is connected to VPS")
     #c.run("git clone https://github.com/Lumina-Institute/Demo.git")
-    c.run("cd /var/www/Demo")
+    c.run("cd /var/www/Demo/")
+    c.run("tree")
     c.run("git pull origin main")
     c.run("python3 -m venv .env")
     c.run("source .env/bin/activate")
