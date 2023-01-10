@@ -4,18 +4,15 @@ on:
     workflow_dispatch:
 name: 🚀 Deploy website on push
 jobs:
-  web-deploy:
-    name: 🎉 Deploy
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@main
-
-    - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@4.3.3
-      with:
-        server: ftp://72.105.23.254:21
-        username: root
-        password: ${{ secrets.FTP_PWD_VPS_KB }}
-        local-dir: ./
-        server-dir: /var/www/
+  job_one:
+      name: Deploy
+      runs-on: ubuntu-latest
+      steps:
+        - name: testing vps ssh connextion
+          uses: appleboy/ssh-action@master
+          with:
+            host: 172.105.19.227
+            username: root
+            key: ${{ secrets.SSH_PRIVATE_KEY }}
+            port: 22
+            script: python3 -m invoke deploy
