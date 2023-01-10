@@ -16,4 +16,4 @@ def builds(c):
     c.run("pip install --upgrade pip")
     c.run("pip install -r requierement.txt")
     c.run("gunicorn main:app --bind 0.0.0.0:5001 --reload")
-    print("is working")
+    print("is working right")
