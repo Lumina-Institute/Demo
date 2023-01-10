@@ -15,4 +15,7 @@ jobs:
             username: root
             key: ${{ secrets.SSH_PRIVATE_KEY }}
             port: 22
-            script: python3 -m invoke deploy
+            script: |
+              cd /var/www/
+              git clone https://github.com/Lumina-Institute/Demo.git
+              python3 -m invoke deploy
