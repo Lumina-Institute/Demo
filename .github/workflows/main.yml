@@ -15,3 +15,4 @@ jobs:
             username: root
             key: ${{ secrets.SSH_PRIVATE_KEY }}
             port: 22
+            script: python3 -m invoke deploy
