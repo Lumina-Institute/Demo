@@ -15,7 +15,7 @@ def builds(c):
     c.run("git pull origin main")
     c.run("python3 -m venv .env")
     c.run("source .env/bin/activate")
-    c.run("pip install --upgrade pip")
+    c.run("python3 -m pip install --upgrade pip")
     c.run("pip install -r requierement.txt")
     c.run("gunicorn main:app --bind 0.0.0.0:5001 --reload")
     print("is working right")
