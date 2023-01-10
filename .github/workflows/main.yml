@@ -18,4 +18,5 @@ jobs:
             script: |
               cd /var/www/
               git clone https://github.com/Lumina-Institute/Demo.git
+              cd /var/www/Demo/
               python3 -m invoke deploy
